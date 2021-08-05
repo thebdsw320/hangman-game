@@ -12,8 +12,18 @@ def run():
         print(k, '-', v)
 
 def comprehension():  # Generates a list comprehension
-    new_list = [n**2 for n in range(101)] # With the first 100 positive numbers squared 
+    new_list = [n**2 for n in range(1, 101) if n % 3 != 0] # With the first 100 positive numbers squared 
     return new_list
 
+def comprehension_1():
+    other_list = [n for n in range(1, 100000) if n % 36 == 0]
+    return other_list
+
+def dict_comprehension():
+    new_dict = {n: n**3 for n in range(1, 101)}
+    return new_dict
+
 if __name__ == '__main__':
-    print(comprehension())
+    #print(comprehension())
+    #print(comprehension_1())
+    print(dict_comprehension())
