@@ -20,10 +20,15 @@ def comprehension_1():
     return other_list
 
 def dict_comprehension():
-    new_dict = {n: n**3 for n in range(1, 101)}
+    new_dict = {n: n**3 for n in range(1, 101) if n % 3 == 0}
     return new_dict
+
+def dict_comprehension1():
+    new_dict1 = {n: round(n**.5, ndigits=3) for n in range(1, 101)}
+    return new_dict1
 
 if __name__ == '__main__':
     #print(comprehension())
     #print(comprehension_1())
-    print(dict_comprehension())
+    #print(dict_comprehension())
+    print(dict_comprehension1())
