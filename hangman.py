@@ -168,8 +168,10 @@ def display_hangman(tries):
     ]
     return stages[tries]
 
-
-if __name__ == '__main__':
+def main():
     welcome()
     word = pick_a_word()
     play(word)
+
+if __name__ == '__main__':
+    main()
