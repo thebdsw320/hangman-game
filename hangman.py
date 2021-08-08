@@ -2,11 +2,25 @@ import os
 import random
 import time
 
+forbidden_chars = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u'}
+
 def welcome():
     name_input = input('What\'s your name? ')
-    print(f'Hello {name_input}, welcome to HANGMAN GAME!')
+
+    HANGMAN_TITLE = """██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗
+██║░░██║██╔══██╗████╗░██║██╔════╝░████╗░████║██╔══██╗████╗░██║
+███████║███████║██╔██╗██║██║░░██╗░██╔████╔██║███████║██╔██╗██║
+██╔══██║██╔══██║██║╚████║██║░░╚██╗██║╚██╔╝██║██╔══██║██║╚████║
+██║░░██║██║░░██║██║░╚███║╚██████╔╝██║░╚═╝░██║██║░░██║██║░╚███║
+╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝
+            an Open Source Project (by @bdsw320)"""   
+
+    print(f'Hello {name_input}, welcome to')
     time.sleep(1)
-    print(f'Time to play HANGMAN {name_input}')
+    print('\n'*2)
+    print(HANGMAN_TITLE)
+    print('\n'*2)
+    print(f'Time to play {name_input}')
     time.sleep(1)
     print('Start guessing your first word!')
 
@@ -18,7 +32,14 @@ def pick_a_word():
         u_word = r_word.upper()
     return u_word
 
+def catch_chars(word):
+    for char, r_char in forbidden_chars.items():
+        if char in word:
+            word = word.replace(char, r_char)
+    return word
+
 def play(word):
+    word = catch_chars(word)
     word_completion = '_' * len(word)
     guessed = False
     guessed_characters = []
@@ -67,7 +88,7 @@ def play(word):
         print('\n')
 
     if guessed:
-        print(f'Congrats! You won, the word was {guess}')
+        print(f'Congrats! You won, the word was {word}')
     else:
         print(f'Sorry!, you ran out of tries, the correct word was {word}')
 # indices = [i for i, letter in enumerate(word) if letter == guess]
