@@ -52,12 +52,14 @@ def play(word):
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_characters:
                 print(f'You guessed that letter ({guess}) already')
+                print('If you want to stop playing, please put Ctrl+C')
             elif guess not in word:
                 print(f'{guess} is not in the secret word')
                 tries -= 1
                 guessed_characters.append(guess)
             else:
                 print(f'Great!, {guess} is in the secret word')
+                print('If you want to stop playing, please put Ctrl+C')
                 word_as_list = list(word_completion)
                 guessed_characters.append(guess)
                 indices = [i for i, letter in enumerate(word) if letter == guess]
@@ -68,12 +70,15 @@ def play(word):
                     guessed = True
         elif len(guess) == 0:
             print('Please enter something!, like a or b, idk :/')
+            print('If you want to stop playing, please put Ctrl+C')
             tries -= 1
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 print(f'You already guessed the word {guess}')
+                print('If you want to stop playing, please put Ctrl+C')
             elif guess != word:
                 print(f'{guess} is not the word')
+                print('If you want to stop playing, please put Ctrl+C')
                 tries -= 1
                 guessed_words.append(guess)
             else:
@@ -81,6 +86,7 @@ def play(word):
                 word_completion = guess
         else:
             print(f'Oh no! {guess} is incorrect, please try again...')
+            print('If you want to stop playing, please put Ctrl+C')
             tries -= 1
         print(display_hangman(tries))
         time.sleep(1)
