@@ -25,7 +25,7 @@ def welcome():
     print('Start guessing your first word!')
 
 def pick_a_word():
-    with open('/mnt/c/Users/norma/OneDrive/Escritorio/Python/Platzi Python/Python Intermedio/data.txt', 'r', encoding='utf-8') as f:
+    with open('data.txt', 'r', encoding='utf-8') as f:
         content = f.read()
         word_list = content.splitlines()
         r_word = random.choice(word_list)
@@ -46,7 +46,7 @@ def play(word):
     guessed_words = []
     tries = 6
     print(display_hangman(tries))
-    
+
     while not guessed and tries > 0:
         guess = input('Please enter a word or a letter: ').upper()
         if len(guess) == 1 and guess.isalpha():
@@ -97,7 +97,6 @@ def play(word):
         print(f'Congrats! You won, the word was {word}')
     else:
         print(f'Sorry!, you ran out of tries, the correct word was {word}')
-# indices = [i for i, letter in enumerate(word) if letter == guess]
 
 
 def display_hangman(tries):

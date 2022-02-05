@@ -1,5 +1,0 @@
-HANGMAN GAME
-
-- mientras guessed sea Falso y los intentos sean mayores a 0 (lo que significa que aun tiene chances de jugar), pregunta una letra o una palabra completa y la conviertes a mayuscula.
-
-- si es una letra y contiene caracteres alfanumericos, sigue, si esa letra está en la lista de palabras que ya habia adivinado antes, hazle saber que ya habia intentado con esa, si no está, imprime que no está ahí y bajale un intento, dentro de la lista de palabras que ya adivinó o que puso sin que estén, agregalas a esa lista.
